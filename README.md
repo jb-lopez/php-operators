@@ -38,6 +38,27 @@ assignment, unary, binary, and comparison operators.
 | `ZEND_COALESCE`            | `169`  | `??`     | No          |
 | `ZEND_SPACESHIP`           | `170`  | `<=>`    | No          |
 
+## Assignment Operators
+
+There are a few assignment operators that are overloaded. These are an operator
+and an assignment operator combined. For example, `+=` is an addition assignment
+operator.
+
+| Operator | Implemented |
+|----------|-------------|
+| `+=`     | Yes         |
+| `-=`     | Yes         |
+| `*=`     | Yes         |
+| `/=`     | Yes         |
+| `%=`     | Yes         |
+| `<<=`    | Yes         |
+| `>>=`    | Yes         |
+| `.=`     | Yes         |
+| `\|=`    | Yes         |
+| `&=`     | Yes         |
+| `^=`     | Yes         |
+| `**=`    | Yes         |
+
 ## Other Opcodes
 
 There are a number of opcodes, more than 200 in total. Many of them don't make
