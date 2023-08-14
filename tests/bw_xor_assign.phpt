@@ -1,5 +1,5 @@
 --TEST--
-Bitwise xor "^" operator overloading
+Bitwise xor assignment "^=" operator overloading
 --EXTENSIONS--
 operators
 --FILE--
