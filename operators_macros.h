@@ -5,24 +5,6 @@
 
 #define USE_OPLINE const zend_op *opline = EX(opline);
 
-#define FREE_OP1                      \
-    if (free_op1)                     \
-    {                                 \
-        zval_ptr_dtor_nogc(free_op1); \
-    }
-#define FREE_OP2                      \
-    if (free_op2)                     \
-    {                                 \
-        zval_ptr_dtor_nogc(free_op2); \
-    }
-
-/* For compatibility with older PHP versions */
-#ifndef ZEND_PARSE_PARAMETERS_NONE
-#define ZEND_PARSE_PARAMETERS_NONE() \
-    ZEND_PARSE_PARAMETERS_START(0, 0) \
-    ZEND_PARSE_PARAMETERS_END()
-#endif
-
 #define OPERATORS(OP)                   \
 OP(ADD, add)                            \
 OP(SUB, sub)                            \
