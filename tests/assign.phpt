@@ -1,5 +1,5 @@
 --TEST--
-Assignment operator "+" overloading
+Assignment operator "=" overloading
 --EXTENSIONS--
 operators
 --FILE--
