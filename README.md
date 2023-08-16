@@ -63,6 +63,7 @@ operator.
 | `&=`     | Yes         |
 | `^=`     | Yes         |
 | `**=`    | Yes         |
+| `??=`    | No          |
 
 ## Other Opcodes
 
