@@ -1,5 +1,5 @@
 --TEST--
-Bitwise assignment or "|=" operator overloading
+Bitwise or assignment "|=" operator overloading
 --EXTENSIONS--
 operators
 --FILE--
