@@ -25,6 +25,11 @@ OP(IS_IDENTICAL, is_identical) \
 OP(IS_NOT_IDENTICAL, is_not_identical) \
 OP(IS_EQUAL, is_equal) \
 OP(IS_NOT_EQUAL, is_not_equal) \
+OP(PRE_INC, pre_inc) \
+OP(PRE_DEC, pre_dec) \
+OP(POST_INC, post_inc) \
+OP(POST_DEC, post_dec) \
+OP(SPACESHIP, spaceship) \
 OP(ASSIGN, assign) \
 OP(ASSIGN_OP, assign_op)
 
