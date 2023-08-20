@@ -4,6 +4,7 @@
 #include "php.h"
 #include "ext/standard/info.h"
 #include "operators_macros.h"
+#include "operators_arginfo.h"
 
 extern zend_module_entry operators_module_entry;
 # define phpext_operators_ptr &operators_module_entry
@@ -16,6 +17,10 @@ ZEND_TSRMLS_CACHE_EXTERN()
 
 ZEND_BEGIN_MODULE_GLOBALS(operators)
     zend_bool debug;
+    // A list of registered overloads
+    zval registered_overloads;
+
+
     OPERATORS(OPERATOR_GLOBAL)
 ZEND_END_MODULE_GLOBALS(operators)
 
