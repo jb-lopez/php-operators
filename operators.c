@@ -1,7 +1,7 @@
 #ifdef HAVE_CONFIG_H
 
 #include <zend_interfaces.h>
-# include "config.h"
+#include "config.h"
 
 #endif
 
