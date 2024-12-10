@@ -1,7 +1,7 @@
 --TEST--
 Is not identical operator "!==" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

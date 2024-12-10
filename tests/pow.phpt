@@ -1,7 +1,7 @@
 --TEST--
 Power operator "**" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

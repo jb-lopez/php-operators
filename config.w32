@@ -1,6 +1,6 @@
-ARG_ENABLE('operators', 'operators support', 'no');
+ARG_ENABLE('operator', 'operator support', 'no');
 
-if (PHP_OPERATORS != 'no') {
-	AC_DEFINE('HAVE_OPERATORS', 1, 'operators support enabled');
-	EXTENSION('operators', 'operators.c', null, '/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1');
+if (PHP_OPERATOR != 'no') {
+	AC_DEFINE('HAVE_OPERATOR', 1, 'operator support enabled');
+	EXTENSION('operator', 'operator.c', null, '/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1');
 }

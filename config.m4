@@ -1,13 +1,13 @@
 dnl $Id$
-dnl config.m4 for extension operators
+dnl config.m4 for extension operator
 
-PHP_ARG_ENABLE([operators],
-  [whether to enable operators support],
-  [AS_HELP_STRING([--enable-operators],
-    [Enable operators support])],
+PHP_ARG_ENABLE([operator],
+  [whether to enable operator support],
+  [AS_HELP_STRING([--enable-operator],
+    [Enable operator support])],
   [no])
 
-if test "$PHP_OPERATORS" != "no"; then
-  AC_DEFINE(HAVE_OPERATORS, 1, [ Have operators support ])
-  PHP_NEW_EXTENSION(operators, operators.c, $ext_shared)
+if test "$PHP_OPERATOR" != "no"; then
+  AC_DEFINE(HAVE_OPERATOR, 1, [ Have operator support ])
+  PHP_NEW_EXTENSION(operator, operator.c, $ext_shared)
 fi

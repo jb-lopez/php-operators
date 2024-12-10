@@ -1,7 +1,7 @@
 --TEST--
 Concat "." operator overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

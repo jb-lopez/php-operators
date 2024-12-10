@@ -1,7 +1,7 @@
 --TEST--
 Spaceship operator "<=>" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

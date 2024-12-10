@@ -1,7 +1,7 @@
 --TEST--
 Division assignment operator "/=" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

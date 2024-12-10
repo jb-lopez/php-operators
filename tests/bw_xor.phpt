@@ -1,7 +1,7 @@
 --TEST--
 Bitwise xor "^" operator overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

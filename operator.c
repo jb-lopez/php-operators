@@ -6,18 +6,19 @@
 #endif
 
 #include "php.h"
-#include "operators.h"
-#include "operators_macros.h"
+#include "operator.h"
+#include "operator_macros.h"
 
 static int handle_operator(zend_execute_data *execute_data, char *magic_method) {
     DEBUG_PRINTF("Checking if %s is callable\n", magic_method)
-    USE_OPLINE;
+
+    const zend_op *opline = ((execute_data)->opline);
     zval * op1, *op2 = NULL;
 
     if (strcmp(magic_method, "__assign_op") == 0) {
         DEBUG_PRINTF("This is an assignment with an operation\n")
         switch (opline->extended_value) {
-            ASSIGN_OPERATORS(ASSIGN_OPERATORS_METHOD_SWITCH)
+            ASSIGN_OPERATOR(ASSIGN_OPERATOR_METHOD_SWITCH)
             default:
                 return ZEND_USER_OPCODE_DISPATCH;
         }
@@ -67,28 +68,28 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
     return ZEND_USER_OPCODE_CONTINUE;
 }
 
-OPERATORS(OPERATOR_HANDLE)
+OPERATOR(OPERATOR_HANDLE)
 
-/* {{{ operators_module_entry */
-zend_module_entry operators_module_entry = {
+/* {{{ operator_module_entry */
+zend_module_entry operator_module_entry = {
         STANDARD_MODULE_HEADER,
-        "operators",                    /* Extension name */
+        "operator",                    /* Extension name */
         NULL,                           /* zend_function_entry */
-        PHP_MINIT(operators),           /* PHP_MINIT - Module initialization */
-        PHP_MSHUTDOWN(operators),       /* PHP_MSHUTDOWN - Module shutdown */
+        PHP_MINIT(operator),           /* PHP_MINIT - Module initialization */
+        PHP_MSHUTDOWN(operator),       /* PHP_MSHUTDOWN - Module shutdown */
         NULL,                           /* PHP_RINIT - Request initialization */
         NULL,                           /* PHP_RSHUTDOWN - Request shutdown */
-        PHP_MINFO(operators),           /* PHP_MINFO - Module info */
-        PHP_OPERATORS_VERSION,          /* Version */
+        PHP_MINFO(operator),           /* PHP_MINFO - Module info */
+        PHP_OPERATOR_VERSION,          /* Version */
         STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
 
-#ifdef COMPILE_DL_OPERATORS
+#ifdef COMPILE_DL_OPERATOR
 # ifdef ZTS
 ZEND_TSRMLS_CACHE_DEFINE()
 # endif
 
-ZEND_GET_MODULE(operators)
+ZEND_GET_MODULE(operator)
 
 #endif

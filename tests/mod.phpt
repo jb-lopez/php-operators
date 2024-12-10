@@ -1,7 +1,7 @@
 --TEST--
 Modulo operator "%" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

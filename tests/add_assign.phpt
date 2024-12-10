@@ -1,7 +1,7 @@
 --TEST--
 Addition assignment operator "+=" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

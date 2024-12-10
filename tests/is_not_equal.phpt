@@ -1,7 +1,7 @@
 --TEST--
 Is not equal operator "!=" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

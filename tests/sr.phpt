@@ -1,7 +1,7 @@
 --TEST--
 Shift right operator ">>" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

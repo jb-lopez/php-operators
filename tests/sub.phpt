@@ -1,7 +1,7 @@
 --TEST--
 Subtraction operator "-" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

@@ -1,7 +1,7 @@
 --TEST--
 Bitwise and assignment "&=" operator overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

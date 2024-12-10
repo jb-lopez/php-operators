@@ -1,7 +1,7 @@
 --TEST--
 Shift left assignment operator "<<=" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

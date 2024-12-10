@@ -1,7 +1,7 @@
 --TEST--
 Is equal operator "==" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

@@ -1,7 +1,7 @@
 --TEST--
 Post-dec operator "$a--" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

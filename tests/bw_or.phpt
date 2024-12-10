@@ -1,7 +1,7 @@
 --TEST--
 Bitwise or "|" operator overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 

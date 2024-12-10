@@ -1,7 +1,7 @@
 --TEST--
 Multiplication assignment operator "*=" overloading
 --EXTENSIONS--
-operators
+operator
 --FILE--
 <?php
 
