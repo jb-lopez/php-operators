@@ -5,21 +5,10 @@ operator
 --FILE--
 <?php
 
+require_once __DIR__ . '/OperatorOverloading.inc';
 const CONST_TEST = 10;
 
-class foo {
-	private $value;
-
-	public function __bw_xor($val) {
-		return $this->value ^ $val;
-	}
-
-	public function __construct($init) {
-		$this->value = $init;
-	}
-}
-
-$a = new foo(8);
+$a = new OperatorOverloading(8);
 var_dump($a ^ 3);
 var_dump($a ^ CONST_TEST);
 

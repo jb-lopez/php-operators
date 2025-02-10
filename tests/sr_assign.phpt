@@ -5,21 +5,10 @@ operator
 --FILE--
 <?php
 
+require_once __DIR__ . '/OperatorOverloading.inc';
 const CONST_TEST = 2;
 
-class foo {
-	private $value;
-
-	public function __sr_assign($val) {
-		return $this->value >>= $val;
-	}
-
-	public function __construct($init) {
-		$this->value = $init;
-	}
-}
-
-$a = new foo(64);
+$a = new OperatorOverloading(64);
 var_dump($a >>= 1);
 var_dump($a >>= CONST_TEST);
 
