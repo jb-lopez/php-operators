@@ -48,12 +48,14 @@ static int handle_##handler(zend_execute_data *execute_data) { \
 }
 
 #define OPERATOR_MINIT(opcode, handler) \
-    operator_globals.original_##handler##_handler = zend_get_user_opcode_handler(ZEND_##opcode); \
+    OpG(original_##handler##_handler) = zend_get_user_opcode_handler(ZEND_##opcode); \
     zend_set_user_opcode_handler(ZEND_##opcode, handle_##handler);
 
-#define OPERATOR_MSHUTDOWN(opcode, handler) zend_set_user_opcode_handler(ZEND_##opcode, operator_globals.original_##handler##_handler);
+#define OPERATOR_GLOBAL_DEC(opcode, handler) operator_globals->original_##handler##_handler;
 
-#define DEBUG_PRINTF(...) if (operator_globals.debug) { printf(__VA_ARGS__); }
+#define OPERATOR_MSHUTDOWN(opcode, handler) zend_set_user_opcode_handler(ZEND_##opcode, OpG(original_##handler##_handler));
+
+#define DEBUG_PRINTF(...) if (OpG(debug)) { printf(__VA_ARGS__); }
 
 //</editor-fold>
 

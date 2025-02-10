@@ -19,13 +19,24 @@ ZEND_BEGIN_MODULE_GLOBALS(operator)
     OPERATOR_LIST(OPERATOR_GLOBAL)
 ZEND_END_MODULE_GLOBALS(operator)
 
-zend_operator_globals operator_globals;
+ZEND_DECLARE_MODULE_GLOBALS(operator)
 
-OPERATOR(OPERATOR_LOCAL)
+static PHP_GINIT_FUNCTION(operator);
+
+#define OpG(v) ZEND_MODULE_GLOBALS_ACCESSOR(operator, v)
+
+/* {{{ PHP_GINIT_FUNCTOIN */
+static PHP_GINIT_FUNCTION(operator)
+{
+    operator_globals->debug = 1;
+    OPERATOR_LIST(OPERATOR_GLOBAL_DEC)
+}
+/* }}} */
+
+OPERATOR_LIST(OPERATOR_LOCAL)
 
 /* {{{ PHP_MINIT_FUNCTION */
 PHP_MINIT_FUNCTION (operator) {
-    operator_globals.debug = 0;
 
     OPERATOR_LIST(OPERATOR_MINIT)
 
