@@ -16,7 +16,7 @@ ZEND_TSRMLS_CACHE_EXTERN()
 
 ZEND_BEGIN_MODULE_GLOBALS(operator)
     zend_bool debug;
-    OPERATOR(OPERATOR_GLOBAL)
+    OPERATOR_LIST(OPERATOR_GLOBAL)
 ZEND_END_MODULE_GLOBALS(operator)
 
 zend_operator_globals operator_globals;
@@ -27,7 +27,7 @@ OPERATOR(OPERATOR_LOCAL)
 PHP_MINIT_FUNCTION (operator) {
     operator_globals.debug = 0;
 
-    OPERATOR(OPERATOR_MINIT)
+    OPERATOR_LIST(OPERATOR_MINIT)
 
     return SUCCESS;
 }
@@ -35,7 +35,7 @@ PHP_MINIT_FUNCTION (operator) {
 
 /* {{{ PHP_MSHUTDOWN_FUNCTION */
 PHP_MSHUTDOWN_FUNCTION (operator) {
-    OPERATOR(OPERATOR_MSHUTDOWN)
+    OPERATOR_LIST(OPERATOR_MSHUTDOWN)
 
     return SUCCESS;
 }

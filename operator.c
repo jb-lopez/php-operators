@@ -18,7 +18,7 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
     if (strcmp(magic_method, "__assign_op") == 0) {
         DEBUG_PRINTF("This is an assignment with an operation\n")
         switch (opline->extended_value) {
-            ASSIGN_OPERATOR(ASSIGN_OPERATOR_METHOD_SWITCH)
+            ASSIGN_OPERATOR_LIST(ASSIGN_OPERATOR_METHOD_SWITCH)
             default:
                 return ZEND_USER_OPCODE_DISPATCH;
         }
@@ -68,7 +68,7 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
     return ZEND_USER_OPCODE_CONTINUE;
 }
 
-OPERATOR(OPERATOR_HANDLE)
+OPERATOR_LIST(OPERATOR_HANDLE)
 
 /* {{{ operator_module_entry */
 zend_module_entry operator_module_entry = {

@@ -5,7 +5,7 @@
 
 #define USE_OPLINE const zend_op *opline = EX(opline);
 
-#define ASSIGN_OPERATOR(OP) \
+#define ASSIGN_OPERATOR_LIST(OP) \
 OP(ADD, add) \
 OP(SUB, sub) \
 OP(MUL, mul) \
@@ -19,8 +19,8 @@ OP(BW_AND, bw_and) \
 OP(BW_XOR, bw_xor) \
 OP(POW, pow)
 
-#define OPERATOR(OP) \
-ASSIGN_OPERATOR(OP) \
+#define OPERATOR_LIST(OP) \
+ASSIGN_OPERATOR_LIST(OP) \
 OP(IS_IDENTICAL, is_identical) \
 OP(IS_NOT_IDENTICAL, is_not_identical) \
 OP(IS_EQUAL, is_equal) \
