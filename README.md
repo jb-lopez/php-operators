@@ -104,7 +104,7 @@ operator.
 | Xor Assignment            | `$a ^= $b`   | Yes         | `$a::__xor_assign($b)`    |
 | Shift left Assignment     | `$a <<= $b`  | Yes         | `$a::__sl_assign($b)`     |
 | Shift right Assignment    | `$a >>= $b`  | Yes         | `$a::__sr_assign($b)`     |
-| Coalesce Assignment       | `$a ??= $b`  | No          |                           |
+| Coalesce Assignment       | `$a ??= $b`  | No[^3]      |                           |
 | Concat Assignment         | `$a .= $b`   | Yes         | `$a::__concat_assign($b)` |
 
 ## Other Opcodes
@@ -120,3 +120,12 @@ it, but I'm not sure. I haven't tested it yet.
   `extra-details` within the `ZEND_ASSIGN_OP` opcode. Those separate opcodes were
   removed in PHP 7.4. This is one of the things that broke the original
   operator overloading extension.
+
+[^3]: I've tried to implement this one, but no matter what I return the PHP engine
+  doesn't want to take the left hand argument. This might be kinda moot to do though,
+  since if an object is null-ish, it wouldn't be able to check if it's null, right?
+  (The object wouldn't be initialized, is what I'm getting at.) I'm not sure what to
+  have the function return to satisify the PHP engine, and if I can't write the PHP
+  correctly, then that also means that I'd need to write up a special documentation
+  note just for that function to describe how to implement it and what to return to
+  get it to work in the userland (since I can't get it to work in userland myself).
