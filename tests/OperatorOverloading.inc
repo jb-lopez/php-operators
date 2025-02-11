@@ -10,7 +10,7 @@ class OperatorOverloading
         return $this->value + $val;
     }
 
-    public function __add_assign(mixed $val): mixed
+    public function __assign_add(mixed $val): mixed
     {
         return $this->value += $val;
     }
@@ -25,7 +25,7 @@ class OperatorOverloading
         return $this->value & $val;
     }
 
-    public function __bw_and_assign(mixed $val): mixed
+    public function __assign_bw_and(mixed $val): mixed
     {
         return $this->value &= $val;
     }
@@ -35,7 +35,7 @@ class OperatorOverloading
         return $this->value | $val;
     }
 
-    public function __bw_or_assign(mixed $val): mixed
+    public function __assign_bw_or(mixed $val): mixed
     {
         return $this->value |= $val;
     }
@@ -59,7 +59,7 @@ class OperatorOverloading
         return $this->value . $val;
     }
 
-    public function __concat_assign(mixed $val): string
+    public function __assign_concat(mixed $val): string
     {
         return $this->value .= $val;
     }
@@ -69,7 +69,7 @@ class OperatorOverloading
         return $this->value / $val;
     }
 
-    public function __div_assign(mixed $val): mixed
+    public function __assign_div(mixed $val): mixed
     {
         return $this->value /= $val;
     }
@@ -109,7 +109,7 @@ class OperatorOverloading
         return $this->value % $val;
     }
 
-    public function __mod_assign(mixed $val): mixed
+    public function __assign_mod(mixed $val): mixed
     {
         return $this->value %= $val;
     }
@@ -119,7 +119,7 @@ class OperatorOverloading
         return $this->value * $val;
     }
 
-    public function __mul_assign(mixed $val): mixed
+    public function __assign_mul(mixed $val): mixed
     {
         return $this->value *= $val;
     }
@@ -139,7 +139,7 @@ class OperatorOverloading
         return $this->value ** $val;
     }
 
-    public function __pow_assign(mixed $val): mixed
+    public function __assign_pow(mixed $val): mixed
     {
         return $this->value **= $val;
     }
@@ -159,7 +159,7 @@ class OperatorOverloading
         return $this->value << $val;
     }
 
-    public function __sl_assign(mixed $val): mixed
+    public function __assign_sl(mixed $val): mixed
     {
         return $this->value <<= $val;
     }
@@ -174,7 +174,7 @@ class OperatorOverloading
         return $this->value >> $val;
     }
 
-    public function __sr_assign(mixed $val): mixed
+    public function __assign_sr(mixed $val): mixed
     {
         return $this->value >>= $val;
     }
@@ -184,7 +184,7 @@ class OperatorOverloading
         return $this->value - $val;
     }
 
-    public function __sub_assign(mixed $val): mixed
+    public function __assign_sub(mixed $val): mixed
     {
         return $this->value -= $val;
     }

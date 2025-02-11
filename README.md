@@ -93,19 +93,19 @@ operator.
 
 | Operator Name             | Operator Use | Implemented | Function Call             |
 |---------------------------|--------------|-------------|---------------------------|
-| Addition Assignment       | `$a += $b`   | Yes         | `$a::__add_assign($b)`    |
-| Subtraction Assignment    | `$a -= $b`   | Yes         | `$a::__sub_assign($b)`    |
-| Multiplication Assignment | `$a *= $b`   | Yes         | `$a::__mul_assign($b)`    |
-| Division Assignment       | `$a /= $b`   | Yes         | `$a::__div_assign($b)`    |
-| Modulo Assignment         | `$a %= $b`   | Yes         | `$a::__mod_assign($b)`    |
-| Exponent Assignment       | `$a **= $b`  | Yes         | `$a::__pow_assign($b)`    |
-| And Assignment            | `$a &= $b`   | Yes         | `$a::__and_assign($b)`    |
-| Or Assignment             | `$a \|= $b`  | Yes         | `$a::__or_assign($b)`     |
-| Xor Assignment            | `$a ^= $b`   | Yes         | `$a::__xor_assign($b)`    |
-| Shift left Assignment     | `$a <<= $b`  | Yes         | `$a::__sl_assign($b)`     |
-| Shift right Assignment    | `$a >>= $b`  | Yes         | `$a::__sr_assign($b)`     |
+| Addition Assignment       | `$a += $b`   | Yes         | `$a::__assign_add($b)`    |
+| Subtraction Assignment    | `$a -= $b`   | Yes         | `$a::__assign_sub($b)`    |
+| Multiplication Assignment | `$a *= $b`   | Yes         | `$a::__assign_mul($b)`    |
+| Division Assignment       | `$a /= $b`   | Yes         | `$a::__assign_div($b)`    |
+| Modulo Assignment         | `$a %= $b`   | Yes         | `$a::__assign_mod($b)`    |
+| Exponent Assignment       | `$a **= $b`  | Yes         | `$a::__assign_pow($b)`    |
+| And Assignment            | `$a &= $b`   | Yes         | `$a::__assign_and($b)`    |
+| Or Assignment             | `$a \|= $b`  | Yes         | `$a::__assign_or($b)`     |
+| Xor Assignment            | `$a ^= $b`   | Yes         | `$a::__assign_xor($b)`    |
+| Shift left Assignment     | `$a <<= $b`  | Yes         | `$a::__assign_sl($b)`     |
+| Shift right Assignment    | `$a >>= $b`  | Yes         | `$a::__assign_sr($b)`     |
 | Coalesce Assignment       | `$a ??= $b`  | No          |                           |
-| Concat Assignment         | `$a .= $b`   | Yes         | `$a::__concat_assign($b)` |
+| Concat Assignment         | `$a .= $b`   | Yes         | `$a::__assign_concat($b)` |
 
 ## Other Opcodes
 

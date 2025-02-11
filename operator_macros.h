@@ -37,7 +37,7 @@ OP(ASSIGN_OP, assign_op)
 
 #define ASSIGN_OPERATOR_METHOD_SWITCH(opcode, handler) \
     case ZEND_##opcode: \
-        magic_method = "__" #handler "_assign"; \
+        magic_method = "__assign_" #handler ; \
         break;
 
 #define OPERATOR_GLOBAL(opcode, handler) user_opcode_handler_t original_##handler##_handler;
