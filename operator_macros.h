@@ -13,8 +13,6 @@ OP(DIV, div) \
 OP(MOD, mod) \
 OP(SL, sl) \
 OP(SR, sr) \
-OP(IS_SMALLER, is_smaller) \
-OP(IS_SMALLER_OR_EQUAL, is_smaller_or_equal) \
 OP(CONCAT, concat) \
 OP(BW_OR, bw_or) \
 OP(BW_AND, bw_and) \
@@ -27,6 +25,8 @@ OP(IS_IDENTICAL, is_identical) \
 OP(IS_NOT_IDENTICAL, is_not_identical) \
 OP(IS_EQUAL, is_equal) \
 OP(IS_NOT_EQUAL, is_not_equal) \
+OP(IS_SMALLER, is_smaller) \
+OP(IS_SMALLER_OR_EQUAL, is_smaller_or_equal) \
 OP(PRE_INC, pre_inc) \
 OP(PRE_DEC, pre_dec) \
 OP(POST_INC, post_inc) \
