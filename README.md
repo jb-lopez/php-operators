@@ -57,7 +57,7 @@ assignment, unary, binary, and comparison operators.
 | Greater than or equal | `$a >= $b`   | No          |                              |
 | Spaceship             | `$a <=> $b`  | Yes         | `$a::__spaceship($b)`        |
 | Ternary               | `$a ?: $b`   | No          |                              |
-| Null coalescing       | `$a ?? $b`   | No          |                              |
+| Null coalescing       | `$a ?? $b`   | No[^3]      |                              |
 
 ### [Incrementing/Decrementing Operators](https://www.php.net/manual/en/language.operators.increment.php)
 
@@ -104,7 +104,7 @@ operator.
 | Xor Assignment            | `$a ^= $b`   | Yes         | `$a::__xor_assign($b)`    |
 | Shift left Assignment     | `$a <<= $b`  | Yes         | `$a::__sl_assign($b)`     |
 | Shift right Assignment    | `$a >>= $b`  | Yes         | `$a::__sr_assign($b)`     |
-| Coalesce Assignment       | `$a ??= $b`  | No[^3]      |                           |
+| Coalesce Assignment       | `$a ??= $b`  | No          |                           |
 | Concat Assignment         | `$a .= $b`   | Yes         | `$a::__concat_assign($b)` |
 
 ## Other Opcodes
