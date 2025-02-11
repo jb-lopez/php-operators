@@ -94,6 +94,16 @@ class OperatorOverloading
         return $this->value !== $val;
     }
 
+    public function __is_smaller(mixed $val): bool
+    {
+        return $this->value < $val;
+    }
+
+    public function __is_smaller_or_equal(mixed $val): bool
+    {
+        return $this->value <= $val;
+    }
+
     public function __mod(mixed $val): int
     {
         return $this->value % $val;

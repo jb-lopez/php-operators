@@ -34,6 +34,17 @@ echo "Test Is Not Identical\n";
 var_dump($a !== 2);
 var_dump($a !== CONST_TEST);
 
+// Test Less Than `$a::__less_than($b)`
+echo "Test Less Than\n";
+$a->value = 5;
+var_dump($a < 2);
+var_dump($a < CONST_TEST);
+
+// Test Less Than Or Equal `$a::__less_than_or_equal($b)`
+echo "Test Less Than Or Equal\n";
+var_dump($a <= 2);
+var_dump($a <= CONST_TEST);
+
 // Test Spaceship Operator `$a::__spaceship($b)`
 echo "Test Spaceship Operator\n";
 $a->value = 5;
@@ -57,6 +68,12 @@ bool(false)
 Test Is Not Identical
 bool(true)
 bool(false)
+Test Less Than
+bool(false)
+bool(true)
+Test Less Than Or Equal
+bool(false)
+bool(true)
 Test Spaceship Operator
 int(1)
 int(-1)
