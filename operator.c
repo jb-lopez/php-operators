@@ -9,7 +9,30 @@
 #include "operator.h"
 #include "operator_macros.h"
 
+static void print_zend_execute_data(const zend_execute_data *execute_data) {
+    if (OpG(debug)) {
+        printf(
+            "ZED:\n"
+            "\topline:\n"
+            "\t\top1_type (zvar_type): %d (%d)\n"
+            "\t\top2_type (zvar_type): %d (%d)\n"
+            "\t\textended_value: %d\n"
+            "\t\topcode: %d\n"
+            "\t\tresult_type: %d\n"
+            ,
+            execute_data->opline->op1_type,
+            Z_TYPE_P(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op1_type, &execute_data->opline->op1, execute_data)),
+            execute_data->opline->op2_type,
+            Z_TYPE_P(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op2_type, &execute_data->opline->op2, execute_data)),
+            execute_data->opline->extended_value,
+            execute_data->opline->opcode,
+            execute_data->opline->result_type
+        );
+    }
+}
+
 static int handle_operator(zend_execute_data *execute_data, char *magic_method) {
+    print_zend_execute_data(execute_data);
     DEBUG_PRINTF("Checking if %s is callable\n", magic_method)
 
     const zend_op *opline = ((execute_data)->opline);
@@ -22,6 +45,7 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
             default:
                 return ZEND_USER_OPCODE_DISPATCH;
         }
+        DEBUG_PRINTF("magic_method is now %s\n", magic_method)
     }
 
     if (opline->op1_type == IS_UNUSED) {
