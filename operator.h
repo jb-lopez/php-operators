@@ -28,7 +28,7 @@ static PHP_GINIT_FUNCTION(operator);
 /* {{{ PHP_GINIT_FUNCTOIN */
 static PHP_GINIT_FUNCTION(operator)
 {
-    operator_globals->debug = 1;
+    operator_globals->debug;
     OPERATOR_LIST(OPERATOR_GLOBAL_DEC)
 }
 /* }}} */
@@ -37,7 +37,7 @@ OPERATOR_LIST(OPERATOR_LOCAL)
 
 /* {{{ PHP_MINIT_FUNCTION */
 PHP_MINIT_FUNCTION (operator) {
-
+    OpG(debug) = 0;
     OPERATOR_LIST(OPERATOR_MINIT)
 
     return SUCCESS;
