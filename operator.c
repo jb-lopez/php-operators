@@ -35,8 +35,8 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
     print_zend_execute_data(execute_data);
     DEBUG_PRINTF("Checking if %s is callable\n", magic_method)
 
-    const zend_op *opline = ((execute_data)->opline);
-    zval * op1, *op2 = NULL;
+    const zend_op *opline = execute_data->opline;
+    zval *op1, *op2, *tmp = NULL;
 
     if (strcmp(magic_method, "__assign_op") == 0) {
         DEBUG_PRINTF("This is an assignment with an operation\n")
@@ -57,7 +57,20 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
 
     if ((Z_TYPE_P(op1) != IS_OBJECT)) {
         DEBUG_PRINTF("op1 is not an object\n")
-        return ZEND_USER_OPCODE_DISPATCH;
+        if (opline->opcode == ZEND_IS_SMALLER || opline->opcode == ZEND_IS_SMALLER_OR_EQUAL) {
+            if ((Z_TYPE_P(op2) != IS_OBJECT)) {
+                DEBUG_PRINTF("op2 is not an object\n")
+                return ZEND_USER_OPCODE_DISPATCH;
+            }
+            magic_method = magic_method == "__is_smaller" ? "__is_greater" : "__is_greater_or_equal";
+            DEBUG_PRINTF("magic_method is now %s\n", magic_method)
+            DEBUG_PRINTF("op2 is an object, and we are using smaller ops, swap them\n")
+            tmp = op1;
+            op1 = op2;
+            op2 = tmp;
+        } else {
+            return ZEND_USER_OPCODE_DISPATCH;
+        }
     }
 
     DEBUG_PRINTF("op1 is an object\n")

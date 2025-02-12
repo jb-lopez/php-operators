@@ -52,9 +52,9 @@ assignment, unary, binary, and comparison operators.
 | Not equal             | `$a <> $b`   | Yes         | `$a::__is_not_equal($b)`        |
 | Not identical         | `$a !== $b`  | Yes         | `$a::__is_not_identical($b)`    |
 | Less than             | `$a < $b`    | Yes         | `$a::__is_smaller($b)`          |
-| Greater than          | `$a > $b`    | Yes[^4]     | `$a::__is_smaller($b)`          |
+| Greater than          | `$a > $b`    | Yes[^4]     | `$a::__is_greater($b)`          |
 | Less than or equal    | `$a <= $b`   | Yes         | `$a::__is_smaller_or_equal($b)` |
-| Greater than or equal | `$a >= $b`   | Yes[^4]     | `$a::__is_smaller_or_equal($b)` |
+| Greater than or equal | `$a >= $b`   | Yes[^4]     | `$a::__is_greater_or_equal($b)` |
 | Spaceship             | `$a <=> $b`  | Yes         | `$a::__spaceship($b)`           |
 | Ternary               | `$a ?: $b`   | No          |                                 |
 | Null coalescing       | `$a ?? $b`   | No[^3]      |                                 |
@@ -117,24 +117,22 @@ sense to overload. The full opcode list can be found in the `php-src` repo
 it, but I'm not sure. I haven't tested it yet.
 
 [^2]: There isn't a separate opcode for `+=`, it's just `ZEND_ADD` as the
-  `extra-details` within the `ZEND_ASSIGN_OP` opcode. Those separate opcodes
-  were removed in PHP 7.4. This is one of the things that broke the original
-  operator overloading extension.
+`extra-details` within the `ZEND_ASSIGN_OP` opcode. Those separate opcodes were
+removed in PHP 7.4. This is one of the things that broke the original operator
+overloading extension.
 
 [^3]: I've tried to implement this one, but no matter what I return the PHP
-  engine doesn't want to take the left hand argument. This might be kinda moot
-  to do though, since if an object is null-ish, it wouldn't be able to check if
-  it's null, right? (The object wouldn't be initialized, is what I'm getting
-  at.) I'm not sure what to have the function return to satisfy the PHP engine,
-  and if I can't write the PHP correctly, then that also means that I'd need to
-  write up a special documentation note just for that function to describe how
-  to implement it and what to return to get it to work in the userland (since I
-  can't get it to work in userland myself).
+engine doesn't want to take the left hand argument. This might be kinda moot to
+do though, since if an object is null-ish, it wouldn't be able to check if it's
+null, right? (The object wouldn't be initialized, is what I'm getting at.) I'm
+not sure what to have the function return to satisfy the PHP engine, and if I
+can't write the PHP correctly, then that also means that I'd need to write up a
+special documentation note just for that function to describe how to implement
+it and what to return to get it to work in the userland (since I can't get it to
+work in userland myself).
 
 [^4]: Internally in the PHP engine, the `>` and `>=` operators are just the `<`
-  and `<=` operators with the arguments swapped. This means that the `>` and
-  `>=` operators are not implemented in this extension. (And they cannot be
-  implemented without modifying the PHP engine). Logically if you are
-  implementing the `<=` and `>=` operators, you do not need to also implement
-  the `>` and `<` operators, since they are the same thing with the arguments
-  swapped.
+and `<=` operators with the arguments swapped. This extension swaps the operands
+back to the correct order before calling the function. This might cause some
+issues comparing objects to objects when not overloading the operator. Further
+testing is required.
