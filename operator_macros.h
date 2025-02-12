@@ -21,6 +21,7 @@ OP(POW, pow)
 
 #define OPERATOR_LIST(OP) \
 ASSIGN_OPERATOR_LIST(OP) \
+OP(BW_NOT, bw_not) \
 OP(IS_IDENTICAL, is_identical) \
 OP(IS_NOT_IDENTICAL, is_not_identical) \
 OP(IS_EQUAL, is_equal) \
