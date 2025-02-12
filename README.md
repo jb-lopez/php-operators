@@ -38,7 +38,7 @@ assignment, unary, binary, and comparison operators.
 | And           | `$a & $b`    | Yes         | `$a::__bw_and($b)` |
 | Or            | `$a \| $b`   | Yes         | `$a::__bw_or($b)`  |
 | Xor           | `$a ^ $b`    | Yes         | `$a::__bw_xor($b)` |
-| Not           | `~$a`        | No          |                    |
+| Not           | `~$a`        | Yes         | `$a::__bw_not($b)` |
 | Shift left    | `$a << $b`   | Yes         | `$a::__sl($b)`     |
 | Shift right   | `$a >> $b`   | Yes         | `$a::__sr($b)`     |
 
@@ -74,8 +74,8 @@ assignment, unary, binary, and comparison operators.
 |---------------|--------------|-------------|---------------|
 | And           | `$a and $b`  | Maybe[^1]   |               |
 | Or            | `$a or $b`   | Maybe[^1]   |               |
-| Xor           | `$a xor $b`  | No          |               |
-| Not           | `$a ! $b`    | No          |               |
+| Xor           | `$a xor $b`  | Maybe[^1]   |               |
+| Not           | `$a ! $b`    | Maybe[^1]   |               |
 | And           | `$a && $b`   | Maybe[^1]   |               |
 | Or            | `$a \|\| $b` | Maybe[^1]   |               |
 
