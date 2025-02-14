@@ -12,21 +12,22 @@
 static void print_zend_execute_data(const zend_execute_data *execute_data) {
     if (OpG(debug)) {
         printf(
-            "ZED:\n"
+            "Zend Execute Data:\n"
             "\topline:\n"
-            "\t\top1_type (zvar_type): %d (%d)\n"
-            "\t\top2_type (zvar_type): %d (%d)\n"
+            "\t\top1_type (zval_type): %d (%s)\n"
+            "\t\top2_type (zval_type): %d (%s)\n"
             "\t\textended_value: %d\n"
-            "\t\topcode: %d\n"
+            "\t\topcode: %d (%s)\n"
             "\t\tresult_type: %d\n"
             ,
             execute_data->opline->op1_type,
-            Z_TYPE_P(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op1_type, &execute_data->opline->op1, execute_data)),
+            zend_zval_type_name(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op1_type, &execute_data->opline->op1, execute_data)),
             execute_data->opline->op2_type,
-            Z_TYPE_P(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op2_type, &execute_data->opline->op2, execute_data)),
+            zend_zval_type_name(zend_get_zval_ptr(execute_data->opline, execute_data->opline->op2_type, &execute_data->opline->op2, execute_data)),
             execute_data->opline->extended_value,
             execute_data->opline->opcode,
-            execute_data->opline->result_type
+            zend_get_opcode_name(execute_data->opline->opcode),
+            (execute_data->opline->result_type)
         );
     }
 }
