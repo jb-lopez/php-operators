@@ -32,6 +32,27 @@ static void print_zend_execute_data(const zend_execute_data *execute_data) {
     }
 }
 
+static zend_bool operator_get_method(zend_string *method, zval *obj, zend_fcall_info *fci, zend_fcall_info_cache *fcc) {
+    memset(fci, 0, sizeof(zend_fcall_info));
+    fci->size = sizeof(zend_fcall_info);
+    fci->object = Z_OBJ_P(obj);
+    ZVAL_STR(&(fci->function_name), method);
+
+    if (!zend_is_callable_ex(&(fci->function_name), fci->object, 0, NULL, fcc, NULL)) {
+        return 0;
+    }
+    /* Disallow dispatch via __call */
+    if (fcc->function_handler == Z_OBJCE_P(obj)->__call) { return 0; }
+    if (fcc->function_handler->type == ZEND_USER_FUNCTION) {
+        zend_op_array *oparray = (zend_op_array*)(fcc->function_handler);
+        if (oparray->fn_flags & ZEND_ACC_CALL_VIA_TRAMPOLINE) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
 static int handle_operator(zend_execute_data *execute_data, char *magic_method) {
     print_zend_execute_data(execute_data);
     DEBUG_PRINTF("Checking if %s is callable\n", magic_method)
@@ -79,6 +100,14 @@ static int handle_operator(zend_execute_data *execute_data, char *magic_method) 
     zend_fcall_info fci = empty_fcall_info;
     zend_fcall_info_cache fcc = empty_fcall_info_cache;
     zend_string * magic_method_name = zend_string_init(magic_method, strlen(magic_method), 0);
+
+    DEBUG_PRINTF("checking if op1 has a magic method\n")
+    if (!operator_get_method(magic_method_name, op1, &fci, &fcc)) {
+        /* Not an overloaded call */
+        DEBUG_PRINTF("Call %s is not overloaded\n", magic_method)
+        return ZEND_USER_OPCODE_DISPATCH;
+    }
+    DEBUG_PRINTF("Call %s is overloaded\n", magic_method)
 
     fci.size = sizeof(zend_fcall_info);
     fci.retval = EX_VAR(opline->result.var);
