@@ -54,8 +54,10 @@ tmp-php.ini
 # IDE Settings #
 ################
 .idea/*
+!.idea/
 !.idea/c_cpp_properties.json
 .vscode/*
+!.vscode/
 !.vscode/c_cpp_properties.json
 
 # Output #

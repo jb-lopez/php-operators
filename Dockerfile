@@ -1,4 +1,4 @@
-FROM php:8.4-bookworm
+FROM php:8.5-trixie
 
 RUN apt install -y $PHPIZE_DEPS
 

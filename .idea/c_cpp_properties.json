@@ -4,7 +4,10 @@
             "name": "CLion",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/php/20240924/**"
+                // "/usr/include/php/20220829/**" // 8.2
+                // "/usr/include/php/20230831/**" // 8.3
+                // "/usr/include/php/20240924/**" // 8.4
+                "/usr/include/php/20250925/**" // 8.5
             ],
             "defines": [],
             "compilerPath": "/usr/bin/cc",
