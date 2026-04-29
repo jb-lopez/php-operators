@@ -78,6 +78,11 @@ class OperatorOverloading extends NotOverloaded
         return $this->value |= $val;
     }
 
+    public function __assign_bw_xor(mixed $val): mixed
+    {
+        return $this->value ^= $val;
+    }
+
     public function __assign_concat(mixed $val): string
     {
         return $this->value .= $val;
