@@ -21,7 +21,7 @@ var_dump(is_object($a));
 
 // The next series of tests are for combinatorial assignment operators.
 
-// Test Addition Assignment `$a::__add_assign($b)`
+// Test Addition Assignment `$a::__assign_add($b)`
 echo "Test Addition Assignment\n";
 $a->value = 1;
 var_dump($a += 2);
@@ -29,7 +29,7 @@ var_dump(is_object($a));
 var_dump($a += CONST_TEST);
 var_dump(is_object($a));
 
-// Test Subtraction Assignment `$a::__sub_assign($b)`
+// Test Subtraction Assignment `$a::__assign_sub($b)`
 echo "Test Subtraction Assignment\n";
 $a->value = 12;
 var_dump($a -= 4);
@@ -37,7 +37,7 @@ var_dump(is_object($a));
 var_dump($a -= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Multiplication Assignment `$a::__mul_assign($b)`
+// Test Multiplication Assignment `$a::__assign_mul($b)`
 echo "Test Multiplication Assignment\n";
 $a->value = 5;
 var_dump($a *= 2);
@@ -45,7 +45,7 @@ var_dump(is_object($a));
 var_dump($a *= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Division Assignment `$a::__div_assign($b)`
+// Test Division Assignment `$a::__assign_div($b)`
 echo "Test Division Assignment\n";
 $a->value = 100;
 var_dump($a /= 2);
@@ -53,7 +53,7 @@ var_dump(is_object($a));
 var_dump($a /= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Modulo Assignment `$a::__mod_assign($b)`
+// Test Modulo Assignment `$a::__assign_mod($b)`
 echo "Test Modulo Assignment\n";
 $a->value = 5;
 var_dump($a %= 2);
@@ -61,7 +61,7 @@ var_dump(is_object($a));
 var_dump($a %= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Exponent Assignment `$a::__pow_assign($b)`
+// Test Exponent Assignment `$a::__assign_pow($b)`
 echo "Test Exponent Assignment\n";
 $a->value = 5;
 var_dump($a **= 2);
@@ -69,7 +69,7 @@ var_dump(is_object($a));
 var_dump($a **= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Bitwise And Assignment `$a::__and_assign($b)`
+// Test Bitwise And Assignment `$a::__assign_bw_and($b)`
 echo "Test Bitwise And Assignment\n";
 $a->value = 15;
 var_dump($a &= 3);
@@ -77,7 +77,7 @@ var_dump(is_object($a));
 var_dump($a &= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Bitwise Or Assignment `$a::__or_assign($b)`
+// Test Bitwise Or Assignment `$a::__assign_bw_or($b)`
 echo "Test Bitwise Or Assignment\n";
 $a->value = 8;
 var_dump($a |= 3);
@@ -85,7 +85,7 @@ var_dump(is_object($a));
 var_dump($a |= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Bitwise Xor Assignment `$a::__xor_assign($b)`
+// Test Bitwise Xor Assignment `$a::__assign_bw_xor($b)`
 echo "Test Bitwise Xor Assignment\n";
 $a->value = 8;
 var_dump($a ^ 3);
@@ -93,7 +93,7 @@ var_dump(is_object($a));
 var_dump($a ^ CONST_TEST);
 var_dump(is_object($a));
 
-// Test Bitwise Shift Left Assignment `$a::__shift_left_assign($b)`
+// Test Bitwise Shift Left Assignment `$a::__assign_sl($b)`
 echo "Test Bitwise Shift Left Assignment\n";
 $a->value = 1;
 var_dump($a <<= 1);
@@ -101,7 +101,7 @@ var_dump(is_object($a));
 var_dump($a <<= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Bitwise Shift Right Assignment `$a::__shift_right_assign($b)`
+// Test Bitwise Shift Right Assignment `$a::__assign_sr($b)`
 echo "Test Bitwise Shift Right Assignment\n";
 $a->value = 2048;
 var_dump($a >>= 1);
@@ -109,7 +109,7 @@ var_dump(is_object($a));
 var_dump($a >>= CONST_TEST);
 var_dump(is_object($a));
 
-// Test Concatenation Assignment `$a::__concat_assign($b)`
+// Test Concatenation Assignment `$a::__assign_concat($b)`
 echo "Test Concatenation Assignment\n";
 $a->value = "Hello ";
 var_dump($a .= "World!");
