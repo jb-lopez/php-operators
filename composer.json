@@ -1,0 +1,18 @@
+{
+    "name": "ext/operator",
+    "description": "PHP extension for operator overloading",
+    "type": "php-ext",
+    "php-ext": {
+        "extension-name": "operator",
+        "version": "0.5.0",
+        "configure-options": [
+            {
+                "name": "enable-operator",
+                "description": "Enable operator overload support, set to 'no' to disable."
+            }
+        ]
+    },
+    "require": {
+        "php": ">= 8.2"
+    }
+}
