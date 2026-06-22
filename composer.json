@@ -1,5 +1,5 @@
 {
-    "name": "ext/operator",
+    "name": "jblo/operator",
     "description": "PHP extension for operator overloading",
     "type": "php-ext",
     "php-ext": {
