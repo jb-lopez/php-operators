@@ -25,6 +25,11 @@ jobs:
       - name: Get the extension matrix
         id: extension-matrix
         uses: php/php-windows-builder/extension-matrix@v1
+        with:
+          # The Windows extension builder has a bug:
+          # ERROR: Worker 2 reported unexpected E_DEPRECATED: explode(): Passing null to parameter #2 ($string) of type string is deprecated in D:\a\php-operators\php-operators\build\3cdf7ed6\run-tests.php on line 3618
+          # This code has no `explode` anywhere in it! So, disable testing until they fix it.
+          run-tests: false
 
   # This job builds the extension on Windows using the matrix generated from the previous job.
   build:
